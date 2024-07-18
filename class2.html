@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Classes - 3D Modeling Tutorial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #4C4C4C; /*Previous F0F7EE */
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body stretches to at least the full height of the viewport */
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: left;
+            align-items: flex-start;
+            padding: 20px; /* Add padding around the container */
+            flex: 1; /* Allow contact section to expand to fill remaining space */
+        }
+
+        .contact-image {
+            max-width: 30%; /* Adjust width as needed */
+            margin-right: 20px; /* Ensure 20px gap */
+            margin-top: 20px; /* Ensure 20px gap from top */
+            margin-bottom: 20px; /* Ensure 20px gap from bottom */
+            overflow: hidden;
+        }
+
+        .contact-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            max-width: 1200px; /* Adjust max-width as needed */
+            padding: 2rem;
+            margin-left: 20px; /* Ensure 20px gap from left */
+            color: #fff;
+        }
+
+        .contact-info h2 {
+            font-size: 2em;
+
+        }
+
+        .contact-info h3 {
+            font-size: 2em;
+            color: #4C4C4C;
+        }
+
+        .contact-info h4 {
+            font-size: 2em;
+            color: #fff;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            text-align: justify; /* Justify text */
+        }
+
+        .contact-details {
+            margin-top: 1.5rem;
+        }
+
+        .contact-details h3 {
+            font-size: 1.5em;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details h2 {
+            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details li {
+            font-size: 1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            font-size: 1.2em;
+            line-height: 1.4;
+            text-align: justify; /* Justify text */
+        }
+
+        .spacer {
+            height: 10px; /* Spacer height */
+        }
+
+        .spacer2 {
+            height: 0.0000001px; /* Spacer height */
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px; /* Adjust padding */
+            }
+            .contact-image {
+                max-width: 100%; /* Take full width on smaller screens */
+                margin-right: 0;
+                margin-left: 0; /* Reset margin on smaller screens */
+                height: 700px;
+                border-radius: 8px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            }
+            .contact-info {
+                max-width: 100%; /* Take full width on smaller screens */
+                margin-right: 0;
+                margin-left: 0; /* Reset margin on smaller screens */
+                margin-bottom: 20px; /* Ensure 20px gap */
+            }
+            .contact-info {
+                padding: 0 1rem; /* Adjust padding */
+                text-align: justify; /* Justify text */
+            }
+        }
+        .footer p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .footer {
+            background-color: #222;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 1rem; /* Adjusted font size */
+            position: relative; /* Ensure relative positioning for absolute elements */
+        }
+        .footer p.slogan {
+            text-align: center;
+            font-size: 1.2em; /* 1.2 times larger */
+            color: #fff;
+            font-weight: bold;
+        }
+        .footer p.copyright {
+            text-align: center;
+            font-size: 1.1em; /* 1.1 times larger */
+            color: #ccc; /* Light grey color */
+        }
+        .footer p.extend {
+            text-align: center;
+            font-size: 0.8em; /* 1.1 times larger */
+            color: #fff; /* Light grey color */
+        }
+
+        .link-separator {
+            color: #ddd;
+            margin: 10px; /* Adjust margin as needed */
+        }
+        a {
+            color: #0000FF; /* Updated hyperlink color */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s ease; /* Smooth color transition */
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .return-home {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .return-home a {
+            color: #4C4C4C;
+            background-color: #FFF;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .return-home a:hover {
+            background-color: #45a049;
+        }
+        .projects, .contact {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: left;
+            text-align: justify;
+        }
+        .project {
+            background-color: #fff; /* Keep background color for projects */
+            color: #4C4C4C;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: justify;
+        }
+        .projectd {
+            background-color: #fff; /* Keep background color for projects */
+            color: #4C4C4C;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: justify;
+        }
+        .skills {
+            background-color: #fff; /* Keep background color for projects */
+            color: #4C4C4C;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 180px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .project P2{
+            font-size: 0.9em;
+            text-align: justify;
+        }
+        .projectd P2{
+            font-size: 0.9em;
+            text-align: justify;
+        }
+        .skills P2{
+            font-size: 0.9em;
+            text-align: center;
+        }
+        .project:hover {
+            transform: scale(1.05); /* Scale up the box slightly on hover */
+            box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Add a subtle shadow on hover */
+        }
+        .projectd:hover {
+            transform: scale(1.05); /* Scale up the box slightly on hover */
+            box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Add a subtle shadow on hover */
+        }
+        .skills:hover {
+            transform: scale(1.05); /* Scale up the box slightly on hover */
+            box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Add a subtle shadow on hover */
+        }
+
+        /* Return to top button */
+        .return-to-top {
+            display: none; /* Initially hide the button */
+            position: fixed;
+            bottom: 20px; /* Adjust as needed */
+            left: 20px; /* Adjust as needed */
+            background-color: #ccc; /* Example background color */
+            color: #fff; /* Example text color */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background-color 5s ease, transform 5s ease;
+        }
+
+        .return-to-top:hover {
+            background-color: #0056b3; /* Example hover background color */
+        }
+
+        .return-to-top svg {
+            fill: currentColor;
+            vertical-align: middle;
+        }
+
+        /* Picture album bar styles */
+        .picture-album-bar {
+            width: 400px; /* Adjust image width */
+            display: flex;
+            overflow-x: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            scrollbar-width: none; /* Hide scrollbar in Firefox */
+            -ms-overflow-style: none; /* Hide scrollbar in IE and Edge */
+        }
+        .picture-album-bar::-webkit-scrollbar {
+            display: none; /* Hide scrollbar in Chrome, Safari, and Opera */
+        }
+        .picture-album-bar img {
+            width: 70px; /* Adjust image width */
+            height: auto;
+            margin-right: 10px; /* Adjust margin between images */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .picture-album-bar img:hover {
+            transform: scale(1.1); /* Scale up on hover */
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-image">
+            <img id="mainImage" src="class2_icon.jpg" alt="Contact Person">
+        </div>
+        <div class="contact-info">
+            <h2>3D Modeling Tutorial</h2>
+            <p>Learn the fundamentals of 3D modeling from industry experts in our comprehensive tutorial. This class, taught by a professional and certified SolidWorks engineer, covers essential techniques and best practices to create precise and detailed 3D models. Perfect for beginners and those looking to enhance their skills, our course provides hands-on experience and personalized instruction to help you master 3D modeling. Join us and bring your creative ideas to life with confidence!</p>
+            <p class="spacer"></p>
+            <p class="spacer"></p>
+            <h2>Courses</h3>
+                <div class="projects">
+                    <div class="project">
+                        <h3>Solidworks</h3>
+                        <ul>
+                        <li>Suitable for beginners and advanced learners seeking proficiency.</li>
+                        <li>Covers fundamental skills like 2D & 3D drawing and assembly techniques.</li>
+                        <li>Explores advanced topics such as 3D printing, mold design, and advanced modeling.</li>
+                        <li>Hands-on projects to apply learning in practical applications.
+</li>
+                        <li>Interactive instructor-led sessions with engaging drawing exercises.</li>
+                        <ul>
+                    </div>
+                    <div class="projectd">
+                        <h3>AutoCAD (2D)</h3>
+                        <ul>
+                        <li>Comprehensive coverage from basic commands to advanced techniques.</li>
+                        <li>Focus on 2D drafting and 3D modeling for various applications.</li>
+                        <li>Detailed tutorials on creating and editing precise technical drawings.</li>
+                        <li>Practical projects to design real-world engineering and architectural plans.</li>
+                        <li>Guidance on industry best practices and efficient workflow strategies.</li>
+                        <ul>
+                    </div>
+                </div>
+
+            <h2>Skills you'll gain</h2>
+                <div class="projects">
+                    <div class="skills">
+                        <p2>Solidworks</p2>
+                    </div>
+                    <div class="skills">
+                        <p2>AutoCAD</p2>
+                    </div>
+                    <div class="skills">
+                        <p2>2D & 3D Drawing</p2>
+                    </div>
+                    <div class="skills">
+                        <p2>Modeling Design</p2>
+                    </div>
+                    
+                </div>
+
+                <div class="contact-details">
+                    <p class="spacer"></p>
+                    <h4>CSWA, CSWP & CSWE Examination</h4>
+                    <p>Join our comprehensive training program designed to prepare you for the prestigious CSWP and CSWA certifications. This course is tailored for individuals aiming to validate their SolidWorks skills with industry-recognized credentials.</p>
+                    <p class="spacer"></p>
+                    <h2>Effective Teaching Strategies</h2>
+                    <ul>
+                    <li>Tailored instruction to build foundational and advanced SolidWorks skills.</li>
+                    <li>Interactive sessions to reinforce understanding of exam topics.</li>
+                    </ul>
+                    <p class="spacer"></p>
+                    <h2>Focused Exam Readiness</h2>
+                    <ul>
+                    <li>Targeted practice sessions to simulate exam conditions.</li>
+                    <li>Guidance on time management and problem-solving techniques.</li>
+                    </ul>
+                    <p class="spacer"></p>
+                    <h2>Personalized Feedback and Support</h2>
+                    <ul>
+                    <li>Individualized feedback to address strengths and areas needing improvement.</li>
+                    <li>Supportive environment to boost confidence and readiness for certification.</li>
+                    </ul>
+                    <p class="spacer"></p>
+                    <p class="spacer"></p>
+                    <p class="spacer"></p>
+                    <p class="spacer"></p>
+                </div>
+                <div class="return-home">
+                    <a href="index.html">Go Back</a>
+                </div>
+            </div>
+        </div>
+    
+    <footer class="footer">
+        <p class="slogan">Education is not preparation for life; education is life itself. - John Dewey</p>
+        <p class="copyright">&copy; 2020 OCTA Education Inc. All rights reserved.</p>
+        <p class="extend"><a href="index.html" style="color: #ddd;">Home</a><span class="link-separator">|</span><a href="privacy_policy.html" style="color: #ddd;">Privacy Policy</a><span class="link-separator">|</span><a href="contact_us.html" style="color: #ddd;">Contact Us</a><span class="link-separator">|</span><a href="term_of_use.html" style="color: #ddd;">Terms of Use</a></p>
+
+    </footer>
+
+    <!-- Return to top button -->
+    <a href="#" class="return-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+            <path d="M12 2L3 11h5v10h8V11h5"></path>
+        </svg>
+    </a>
+
+    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const returnToTop = document.querySelector('.return-to-top');
+        const priceRange = document.getElementById('price-range');
+        const priceRangeValue = document.getElementById('price-range-value');
+        const filterButton = document.querySelector('.filter-button');
+        const closeSidebarButton = document.querySelector('.close-button');
+        const sidebar = document.querySelector('.sidebar');
+
+        // Function to change the main image
+        function changeImage(imageSrc) {
+            document.getElementById('mainImage').src = imageSrc;
+        }
+
+        // Scroll event listener to show/hide return-to-top button
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > (document.documentElement.scrollHeight - window.innerHeight) * 0.9) {
+                returnToTop.style.display = 'block';
+            } else {
+                returnToTop.style.display = 'none';
+            }
+        });
+
+        // Smooth scroll to top functionality
+        returnToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Debugging: Test if the function is accessible globally
+        window.changeImage = changeImage;
+
+    });
+</script>
+
+</body>
+</html>
